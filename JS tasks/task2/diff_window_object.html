@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Difference between Document and Window Objectd</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <h1 id="heading">Difference between Document and Window Objects</h1><hr>
+    <p>A clear understanding of <b>Browser Object Model (BOM)</b> and <b>Document Object Model(DOM)</b> resolves the problem.</p>
+    <h2>Browser Object Model (BOM)</h2>
+    <p>The Browser Object Model contains objects that represent the current browser window or tab. 
+        The topmost object in the BOM is the window object representing the window or tab or an iframe sometimes.
+         Window object has properties like browser history, location and the device’s screen etc.
+        In case of multi tab browser, a <i>window object represents a single tab</i>, but some of its properties like <i>innerHeight, innerWidth</i> and methods like <i>resizeTo() </i>will affect the whole browser window.</p>
+        <h2>Document Object Model</h2>
+        <p>When a web page is loaded, the browser creates a <i>Document Object Model</i> of the page. 
+            The document object represents the whole html document as a tree of Objects<i>(HTML, HEAD, BODY, and other HTML tags)</i>.
+             It is the root element that represents the html document.</p>
+            <center> <img  alt="dom_bom" src="./image.webp"><br>
+             <cite>Figure 1 : Hierarchy of Window and Document object using BOM and DOM</cite></center>
+             <h2>Window Vs Document</h2>
+             <p><b>Window object :</b> It is the top most object and outermost element of the object hierarchy as shown in Figure 1.</p>
+
+              <p>  <b>Document object : </b>Each HTML document that gets loaded into a window becomes a document object. 
+                The document contains the contents of the page. Using document object, JavaScript can modify, 
+                add and delete the HTML elements, attributes CSS styles in the page</p>
+                
+                <p>The window object represents a window/tab containing a DOM document where as document object is property of window object that points to the DOM document loaded in that window.</p>
+                
+               <p> You can access a document object either using window.document property or using document object directly as window is global object.
+                 In the below example, title is the property of document object.
+                
+                </p>
+             <center> <img  alt="dom_bom1" src="./image2.webp"></center>
+                <p>The other major difference is that both window object and document object have properties and methods.
+                     Few method names are same in both objects but with different behavior.
+                     In the below example window.open() opens a new tab or window and document.open() creates a blank document within the window.</p>
+                     <center><img  alt="dom_bom2" src="./image2.webp"></center> 
+</body>
+</html>
