@@ -1,0 +1,98 @@
+<html>
+
+<head>
+    <title>XML HTTP Request Example</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    This is for XML parsing
+
+    <script>
+        // Creating an XMLHttpRequest object
+        const xhr = new XMLHttpRequest();
+
+        // Define the URL to which the request will be sent
+        const url = 'https://restcountries.com/v3.1/all'; // Replace with your API endpoint
+
+        // This function is called whenever the state of the XMLHttpRequest changes
+        xhr.onreadystatechange = function () {
+            // XMLHttpRequest.DONE means the operation is complete
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                // Check if the request was successful (status code 200)
+                if (xhr.status === 200) {
+                    // Parse the JSON response
+                    const response = JSON.parse(xhr.responseText);
+                    // Call a function to display the data
+                   // console.log(response)
+                 // a. Get all the countries from Asia continent /region using Filter function
+                    var countries=response.filter((item)=>{
+                        if(item.region=='Asia' || item.continents.includes('Asia')){
+                            return true
+                        }
+                    })
+                    console.log("Countries in Asia region/continent")
+                    countries.forEach(element => {
+                        console.log(element.name.common)
+                    });
+
+                    // b.Get all the countries with a population of less than 2 lakhs using Filter function
+
+                    var population=response.filter((item)=>{
+                        if(item.population<200000){
+                            return true
+                        }
+                    })
+                    
+                    console.log("Countries with population less than 2 lakhs")
+                    population.forEach(element => {
+                        console.log(element.name.common)
+                    });
+
+                    // c.Print the following details name, capital, flag, using forEach function
+                    console.log("name,capital and flag of all countries")
+                    response.forEach(element => {
+                        console.log("Name : "+element.name.common)
+                        console.log("Capital :"+element.capital)
+                        console.log("Flag : "+element.flag)
+                    });
+
+                    // d.Print the total population of countries using reduce function
+                    var totalPopulation=response.reduce((sum,item)=>{
+                        return sum+item.population
+                    },0)
+                   console.log("total population: "+totalPopulation)
+
+                   // e.Print the country that uses US dollars as currency.
+                    var usdcountries=response.filter((item)=>{
+                    for(currency in item.currencies){
+                        if(currency=='USD'){
+                            return true
+                        }
+                    }
+                
+                    })
+                    console.log("Countries that uses US dollars as currency")
+                    usdcountries.forEach((element)=>{
+                    console.log(element.name.common)   
+                     
+                 })
+
+                } else {
+                    // Log an error message if the request fails
+                    console.error('There was a problem with the request.');
+                }
+            }
+        };
+
+        // Open a connection with the server
+        xhr.open('GET', url, true); // Parameters: method, URL, asynchronous (true/false)
+
+        // Send the request
+        xhr.send(); // For POST requests, you can pass data as an argument to send()
+
+    </script>
+</body>
+
+</html>
