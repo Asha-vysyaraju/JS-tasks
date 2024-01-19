@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("./india.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.countdown {
+    font-family: 'Bungee Spice', sans-serif;
+
+    height: 100vh;
+    width: 100%;
+    text-align: center;
+}
+
+.containter {
+    width: 100%;
+    height: 100vh;
+}
+
+#display {
+    font-size: 80px;
+}
