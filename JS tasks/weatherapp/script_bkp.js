@@ -1,4 +1,4 @@
-var container = document.querySelector('.row')
+/* var container = document.querySelector('.row')
 fetch("https://restcountries.com/v3.1/all")
     .then((res) => res.json())
     .then((data) => {
@@ -94,5 +94,5 @@ document.getElementById(`card_${city}`).appendChild(weather)
             //   card.appendChild(weather)
 
                        
-    }
+    } */
    
