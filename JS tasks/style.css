@@ -24,3 +24,7 @@ h1,h2{
 #cen{
     text-align:center;
 }
+.head{
+    width:200px;
+    height:200px;
+}
